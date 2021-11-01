@@ -1,0 +1,308 @@
+{% load i18n static %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+<head>
+
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Pinnamaya Cycles. Burn Fat, Not Fuel." />
+    <meta name="image" content="{% static 'img/logosm.png' %}" />
+    <meta name='subject' content='Pinnamaya Cycles Official Website'>
+    <meta name='url' content='https://pinnamaya.com'>
+    <meta name='subtitle' content='Pinnamaya Cycles Official Website'>
+    <meta name='title' content='Saraf Circle'>
+    <meta name="theme-color" content="#f7fafc" />
+
+    <meta name='og:title' content='Pinnamaya Cycles'>
+    <meta name='og:type' content='Pinnamaya Cycles Official Website'>
+    <meta name='og:url' content='https://pinnamaya.com'>
+    <meta name='og:image' content="{% static 'img/logosm.png' %}">
+    <meta name='og:site_name' content='Saraf Circle'>
+    <meta name="og:description" content="Pinnamaya Cycles. Burn Fat, Not Fuel." />
+
+    <link rel="shortcut icon" href="{% static 'img/logosm.png' %}" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/logosm.png' %}" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/logosm.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/logosm.png' %}">
+    <link rel="mask-icon" href="{% static 'js/manifest/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}">
+{% if not is_popup and is_nav_sidebar_enabled %}
+  <link rel="stylesheet" type="text/css" href="{% static "admin/css/nav_sidebar.css" %}">
+  <script src="{% static 'admin/js/nav_sidebar.js' %}" defer></script>
+{% endif %}
+{% block extrastyle %}{% endblock %}
+{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}">{% endif %}
+{% block extrahead %}{% endblock %}
+{% block responsive %}
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/responsive.css" %}">
+    {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% static "admin/css/responsive_rtl.css" %}">{% endif %}
+{% endblock %}
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE">{% endblock %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"> -->
+<style>
+    *{
+        font-family: 'Montserrat', Helvetica, sans-serif !important;
+    }
+    input {
+        outline: 0 !important;
+    }
+    .light-theme {
+        background: url('/static/img/back2.png') no-repeat center center fixed !important; 
+        -webkit-background-size: cover !important;
+        -moz-background-size: cover !important;
+        -o-background-size: cover !important;
+        background-size: cover !important;
+    }
+    .login #container {
+        background: transparent !important;
+        min-width: 500px;
+        border: 1px solid #ffffff55;
+    }
+    .login #main{
+        padding: 50px;
+    }
+    .dark-theme {
+        background: url('/static/img/back3.png') no-repeat center center fixed !important; 
+        -webkit-background-size: cover !important;
+        -moz-background-size: cover !important;
+        -o-background-size: cover !important;
+        background-size: cover !important;
+    }
+
+    .dark-theme {
+        --primary: #264b5d75 !important;
+        --primary-fg: #eee !important;
+        --body-fg: #eeeeee !important;
+        --accent: #ed3237 !important;
+        --body-bg: #12121255 !important;
+        --body-quiet-color: #e0e0e0 !important;
+        --body-loud-color: #ffffff !important;
+        --breadcrumbs-link-fg: #e0e0e0 !important;
+        --breadcrumbs-bg: #264b5daa !important;
+        --link-fg: #81d4fa !important;
+        --link-hover-color: #4ac1f7 !important;
+        --link-selected-fg: #6f94c6 !important;
+        --hairline-color: #272727 !important;
+        --border-color: #353535 !important;
+        --error-fg: #e35f5f !important;
+        --message-success-bg: #006b1b !important;
+        --message-warning-bg: #583305 !important;
+        --message-error-bg: #570808 !important;
+        --darkened-bg: #21212155 !important;
+        --selected-bg: #1b1b1b !important;
+        --selected-row: #00363a !important;
+        --close-button-bg: #333333 !important;
+        --close-button-hover-bg: #666666 !important;
+        --header-bg: #00000055 !important;
+        --header-link-color: white !important;
+        --header-color: #fff !important;
+    }
+    .light-theme {
+        --primary: #79aec875 !important;
+        --secondary: #417690 !important;
+        --accent: #ed3237 !important;
+        --primary-fg: #fff !important;
+        --body-fg: #333 !important;
+        --body-bg: #ffffff33 !important;
+        --body-quiet-color: rgb(203, 203, 212) !important;
+        --body-loud-color: #000 !important;
+        --header-color: #000 !important;
+        --header-branding-color: var(--accent) !important;
+        --header-bg: #ffffff33 !important;
+        --header-link-color: black !important;
+        --breadcrumbs-fg: #c4dce8 !important;
+        --breadcrumbs-link-fg: var(--body-bg) !important;
+        --breadcrumbs-bg: #79aec8aa !important;
+        --link-fg: #1e4052 !important;
+        --link-hover-color: #036 !important;
+        --link-selected-fg: #5b80b2 !important;
+        --hairline-color: #e8e8e8 !important;
+        --border-color: #ccc !important;
+        --error-fg: #ba2121 !important;
+        --message-success-bg: #dfd !important;
+        --message-warning-bg: #ffc !important;
+        --message-error-bg: #ffefef !important;
+        --darkened-bg: #f8f8f855 !important;
+        --selected-bg: #e4e4e4 !important;
+        --selected-row: #ffc !important;
+        --button-fg: #fff !important;
+        --button-bg: var(--primary) !important;
+        --button-hover-bg: #609ab6 !important;
+        --default-button-bg: var(--secondary) !important;
+        --default-button-hover-bg: #205067 !important;
+        --close-button-bg: #888 !important;
+        --close-button-hover-bg: #747474 !important;
+        --delete-button-bg: #ba2121 !important;
+        --delete-button-hover-bg: #a41515 !important;
+        --object-tools-fg: var(--button-fg) !important;
+        --object-tools-bg: var(--close-button-bg) !important;
+        --object-tools-hover-bg: var(--close-button-hover-bg) !important;
+    }
+    #theme-toggler {
+        /* display: block; */
+        font-size: 22px;
+        color: var(--header-link-color);;
+        background-color: transparent;
+        padding: 6px 9px;
+        outline: 0;
+        border: 0px;
+        transition: all 300ms ease;
+        cursor: pointer;
+    }
+    #user-tools {
+        display: flex ;
+        align-items: center;
+    }
+    #branding {
+        display: flex;
+        align-items: center;
+    }
+</style>
+</head>
+
+<body class="light-theme {% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}"
+  data-admin-utc-offset="{% now "Z" %}">
+
+<!-- Container -->
+<div id="container">
+
+    {% if not is_popup %}
+    <!-- Header -->
+    {% block header %}
+    <div id="header">
+        <div id="branding">
+            <img src="/static/img/logosm.png" alt="Logo" width="40" height="35">
+            <h1 style="margin-left: 10px;">Pinnamaya</h1>
+        </div>
+        {% block usertools %}
+        {% if has_permission %}
+        <div id="user-tools">
+            {% block welcome-msg %}
+                {% translate 'Welcome,' %}
+                <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+            {% endblock %}
+            {% block userlinks %}
+                {% if site_url %}
+                    <a href="{{ site_url }}">{% translate 'View site' %}</a> /
+                {% endif %}
+                {% if user.is_active and user.is_staff %}
+                    {% url 'django-admindocs-docroot' as docsroot %}
+                    {% if docsroot %}
+                        <a href="{{ docsroot }}">{% translate 'Documentation' %}</a> /
+                    {% endif %}
+                {% endif %}
+                {% if user.has_usable_password %}
+                <a href="{% url 'admin:password_change' %}">{% translate 'Change password' %}</a> /
+                {% endif %}
+                <a href="{% url 'admin:logout' %}">{% translate 'Log out' %}</a>
+            {% endblock %}
+            <button id="theme-toggler" class="bi bi-toggle-off"></button>
+        </div>
+        {% endif %}
+        {% endblock %}
+        {% block nav-global %}{% endblock %}
+    </div>
+    {% endblock %}
+    <!-- END Header -->
+    {% block breadcrumbs %}
+    <div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+    {% if title %} &rsaquo; {{ title }}{% endif %}
+    </div>
+    {% endblock %}
+    {% endif %}
+
+    <div class="main" id="main">
+      {% if not is_popup and is_nav_sidebar_enabled %}
+        {% block nav-sidebar %}
+          {% include "admin/nav_sidebar.html" %}
+        {% endblock %}
+      {% endif %}
+      <div class="content">
+        {% block messages %}
+          {% if messages %}
+            <ul class="messagelist">{% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
+            {% endfor %}</ul>
+          {% endif %}
+        {% endblock messages %}
+        <!-- Content -->
+        <div id="content" class="{% block coltype %}colM{% endblock %}">
+          {% block pretitle %}{% endblock %}
+          {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+          {% block content_subtitle %}{% if subtitle %}<h2>{{ subtitle }}</h2>{% endif %}{% endblock %}
+          {% block content %}
+            {% block object-tools %}{% endblock %}
+            {{ content }}
+          {% endblock %}
+          {% block sidebar %}{% endblock %}
+          <br class="clear">
+        </div>
+        <!-- END Content -->
+        {% block footer %}<div id="footer"></div>{% endblock %}
+      </div>
+    </div>
+</div>
+<!-- END Container -->
+<script>
+    
+    if(localStorage.getItem('theme')!==null){
+        if(localStorage.getItem('theme')=='dark-theme'){
+            document.body.classList.replace('light-theme','dark-theme')
+                document.getElementById('theme-toggler').classList.replace('bi-toggle-off','bi-toggle-on')
+        }
+        else if(localStorage.getItem('theme')=='light-theme'){
+            document.body.classList.replace('dark-theme','light-theme')
+                document.getElementById('theme-toggler').classList.replace('bi-toggle-on','bi-toggle-off')
+        }
+        else{
+            document.body.classList.replace('dark-theme','light-theme')
+                document.getElementById('theme-toggler').classList.replace('bi-toggle-on','bi-toggle-off')
+        }
+    }
+    else{
+        localStorage.setItem('theme','dark-theme')
+    }
+    document.getElementById('theme-toggler').addEventListener('click',()=>{
+        console.log('entered')
+        
+        if(localStorage.getItem('theme')!==null){
+            if(localStorage.getItem('theme')=='dark-theme'){
+                document.body.classList.replace('dark-theme','light-theme')
+                document.getElementById('theme-toggler').classList.replace('bi-toggle-on','bi-toggle-off')
+                localStorage.setItem('theme','light-theme')
+            }
+            else if(localStorage.getItem('theme')=='light-theme'){
+                document.body.classList.replace('light-theme','dark-theme')
+                document.getElementById('theme-toggler').classList.replace('bi-toggle-off','bi-toggle-on')
+                localStorage.setItem('theme','dark-theme')
+            }
+            else{
+                document.body.classList.replace('light-theme','dark-theme')
+                document.getElementById('theme-toggler').classList.replace('bi-toggle-off','bi-toggle-on')
+                localStorage.setItem('theme','dark-theme')
+            }
+        }
+        // document.body.classList.toggle('light-theme')
+        // document.body.classList.toggle('dark-theme')
+        // document.getElementById('theme-toggler').classList.toggle('bi-toggle-on')
+    })
+</script>
+</body>
+</html>

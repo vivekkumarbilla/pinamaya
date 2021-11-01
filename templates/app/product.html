@@ -1,0 +1,282 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Pinnamaya Cycles. Burn Fat, Not Fuel." />
+    <meta name="image" content="{% static 'img/logosm.png' %}" />
+    <meta name='subject' content='Pinnamaya Cycles Official Website'>
+    <meta name='url' content='https://pinnamaya.com'>
+    <meta name='subtitle' content='Pinnamaya Cycles Official Website'>
+    <meta name='title' content='Saraf Circle'>
+    <meta name="theme-color" content="#f7fafc" />
+
+    <meta name='og:title' content='Pinnamaya Cycles'>
+    <meta name='og:type' content='Pinnamaya Cycles Official Website'>
+    <meta name='og:url' content='https://pinnamaya.com'>
+    <meta name='og:image' content="{% static 'img/logosm.png' %}">
+    <meta name='og:site_name' content='Saraf Circle'>
+    <meta name="og:description" content="Pinnamaya Cycles. Burn Fat, Not Fuel." />
+
+    <link rel="shortcut icon" href="{% static 'img/logosm.png' %}" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/logosm.png' %}" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'js/manifest/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'js/manifest/favicon-16x16.png' %}">
+    <link rel="mask-icon" href="{% static 'js/manifest/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    
+    <title>{{product.model}}</title>
+    <link rel="manifest" href="{% static 'js/manifest.json' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/mobile.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" integrity="sha512-Woz+DqWYJ51bpVk5Fv0yES/edIMXjj3Ynda+KWTIkGoynAMHrqTcDUQltbipuiaD5ymEo9520lyoVOo9jCQOCA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- YARSH NAVBAR -->
+    <nav id="nav" class="nav-open ">
+        <div class="imgwrap">
+            <img src="{% static 'img/logosm.png' %}" alt="Pinnamaya Cycles Logo" width="40" height="35" >
+            <button id="toggler"><i class="bi bi-list"></i></button>
+        </div>
+        <ul>
+            <li ><a href="/home" >Home</a></li>
+            <li ><a href="/about" >About</a></li>
+            <li ><a href="/products" >Products</a></li>
+            <li ><a href="/gallery" >Gallery</a></li>
+            <li ><a href="/contact-us" >Contact Us</a></li>
+            <li><a href="/admin" aria-label="Admin Login" title="Login to Admin Account" target="_blank"><i class="bi bi-person-circle"></i></a></li>
+        </ul>
+    </nav>
+    <!-- YARSH MAIN CONTENT -->
+    <main>
+        <div class="back-wrap">
+            <div style="min-height: 55px;width: 100%;">
+
+            </div>
+            <!-- <img src="{% static 'img/back2.png' %}" alt="" class="bg"> -->
+            
+            <!-- <div class="title-wrap">
+                <h1>Check out<span class="break"></span> our<span class="break"></span> Products
+                </h1>
+                <div class="icons">
+                    <span class="scroll_arrows one"></span>
+                    <span class="scroll_arrows two"></span>
+                    <span class="scroll_arrows three"></span>
+                </div>
+            </div> -->
+        </div>
+
+        <div class="container">
+            <h1 class="product-model">{{product.model}}</h1>
+            <div class="main-product">
+
+                <div class="imagecaro" style="display: flex;">
+                    <img src="/media/{{product.image}}" alt="{{product.model}}" data-title="Default" class="caro-item caro-active product-image">
+                    {% for c in colors %}
+                    <img src="/media/{{c.image}}" alt="{{c.colorname}}" data-title="{{c.colorname}}" class="caro-item caro-inactive product-image">
+                    {% endfor %}
+                </div>
+                
+                <!-- <div style="display: none;" id="caro" class="caro"><div class="slider-for">
+                    <img src="/media/{{product.image}}" alt="{{product.model}}"  class="bg-aboutc pimage-main">
+                    {% for c in colors %}
+                    <img src="/media/{{c.image}}" alt="{{c.colorname}}"  class="bg-aboutc pimage-main">
+                    {% endfor %}
+                </div> -->
+                <div class="specs">
+                    <div class="head-wrap">
+                        <div class="head-section">
+                            <h1>Specs</h1>
+                        </div>
+                    </div>
+                    <div class="title1">
+                        <h2>Available in Sizes </h2>
+                    </div>
+                    <p>
+                        {% for s in sizes %}
+                        <span style="margin-right: 3px;">{{s.size}}'' {% if forloop.last %}{% else %} / {%endif%}</span>
+                        {% endfor %}
+                    </p>
+                    {% if product.price %}
+                    <div class="title1">
+                        <h2>Price </h2>
+                    </div>
+                    <p><span style="font-size: 18px; font-family: Helvetica;margin-right: 5px;">₹</span>{{product.price}}</p>
+                    {% endif %}
+                    <div class="title1">
+                        <h2>Color Variants </h2>
+                    </div>
+                    <div>
+
+                        <div class="slider-navc colors">
+                            <div class="color-variant" data-target="Default"><span class="color" style="background-color:grey;"></span>Default</div>
+                            {% for c in colors %}
+                            <div class="color-variant" data-target="{{c.colorname}}"><span class="color" style="background-color: {{c.color}};"></span>{{c.colorname}}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="title1">
+                        <h2>Features </h2>
+                    </div>
+                    <div>
+                        {% if product.frame %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Frame: &emsp;</h4> {{product.frame}}</div>{% endif %}
+                        {% if product.fork %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Fork: &emsp;</h4> {{product.fork}}</div>{% endif %}
+                        {% if product.decal %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Decal: &emsp;</h4> {{product.decal}}</div>{% endif %}
+                        {% if product.chain %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Chain: &emsp;</h4> {{product.chain}}</div>{% endif %}
+                        {% if product.pedal %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Pedal: &emsp;</h4> {{product.pedal}}</div>{% endif %}
+                        {% if product.bottombracket %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Bottom Bracket: &emsp;</h4> {{product.bottombracket}}</div>{% endif %}
+                        {% if product.fderaileur %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Front Deraileur: &emsp;</h4> {{product.fderaileur}}</div>{% endif %}
+                        {% if product.rderaileur %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Rear Deraileur: &emsp;</h4> {{product.rderaileur}}</div>{% endif %}
+                        {% if product.shifter %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Shifter: &emsp;</h4> {{product.shifter}}</div>{% endif %}
+                        {% if product.rims %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Rims: &emsp;</h4> {{product.rims}}</div>{% endif %}
+                        {% if product.tyre %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Tyre: &emsp;</h4> {{product.tyre}}</div>{% endif %}
+                        {% if product.tube %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Tube: &emsp;</h4> {{product.tube}}</div>{% endif %}
+                        {% if product.headset %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Headset: &emsp;</h4> {{product.headset}}</div>{% endif %}
+                        {% if product.handlebar %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Handle Bar: &emsp;</h4> {{product.handlebar}}</div>{% endif %}
+                        {% if product.stem %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Stem: &emsp;</h4> {{product.stem}}</div>{% endif %}
+                        {% if product.saddle %}<div class="feature"><h4 style="display: inline-block; margin: 0;">Saddle: &emsp;</h4> {{product.saddle}}</div>{% endif %}
+                    </div>
+                    {% if product.amazonlink %}
+                    <div class="product-links" style="align-items: flex-start;">
+                        <a href="{{product.amazonlink}}" target="_blank" class="amazon">View On Amazon</a>
+                    </div> 
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- <div class="products-all">
+                
+            </div> -->
+            <!-- <h3>Life is like riding a Bicycle, <br> to stay balanced you must keep moving.</h3> -->
+            <!-- <p>
+                Hello, We are Pinnamaya Cycles,<br>
+                owned by <span class="light-strong">Surjan Trading Pvt. Ltd., Nagpur</span>
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio 
+                alias pariatur minima quaerat amet nobis eos soluta iure aperiam. Asperiores dignissimos eligendi et nesciunt maxime ullam voluptates amet in iste.
+            </p> -->
+
+        </div>
+    </main>
+
+    <!-- YARSH FOOTER -->
+    <footer>
+        <div class="first">
+            <img src="{% static 'img/logosm.png' %}" alt="Pinnamaya Cycles Logo" width="40" height="35">
+            <ul>
+                <li><a href="http://www.twitter.com/pinnamaya" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter"></i></a></li>
+                <li><a href="http://www.facebook.com/pinnamaya" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a></li>
+                <li><a href="http://www.instagram.com/pinnamaya" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a></li>
+            </ul>
+        </div>
+        <div class="second">
+            <p>Web</p>
+            <ul>
+                <li><a href="/" target="_blank" rel="noopener noreferrer">Home</a></li>
+                <li><a href="/about" target="_blank" rel="noopener noreferrer">About</a></li>
+                <li><a href="/products" target="_blank" rel="noopener noreferrer">Products</a></li>
+                <li><a href="/contact-us" target="_blank" rel="noopener noreferrer">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="second">
+            <p>Subscribe to Us</p>
+            <form method="post" action="/subscribe">
+                <input type="button" class="message-close">
+                    
+                </input>
+                {% csrf_token %}
+                <input type="email" aria-label="email" required aria-labelledby="email" name="email" placeholder="Enter Your Email" label="email">
+                <input type="submit">Send</button>
+            </form>
+        </div>
+    </footer>
+    <footer class="bottom">
+        <small class="copyrights">© <span id="date"></span> Pinnamaya Cycles. All rights Reserved</small>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://awik.io/demo/webshop-zoom/Drift.min.js"></script>
+    <script>
+        var bikes = document.getElementsByClassName('product')
+        for (var i =0;i< bikes.length;i++){
+            console.log(bikes[i].id)
+            new Drift(document.querySelector('.product-image'+bikes[i].id), {
+                paneContainer: document.querySelector('.zoom'+bikes[i].id),
+                inlinePane: 769,
+                inlineOffsetY: -85,
+                containInline: true,
+                hoverBoundingBox: true
+                });
+        }
+    </script>
+    <script defer src="{% static 'js/script.js' %}"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script >
+        $('.slider-for').slick();
+        // $('.slider-for').slick({
+            // slidesToShow: 1,
+            // slidesToScroll: 1,
+            // arrows: false,
+            // fade: true,
+            // asNavFor: '.slider-nav'
+        // });
+        // $('.slider-nav').slick({
+        //     slidesToShow: 3,
+        //     slidesToScroll: 1,
+        //     asNavFor: '.slider-for',
+        //     dots: false,
+        //     centerMode: true,
+        //     focusOnSelect: true
+        // });
+        // document.getElementById('caro').style.display ='block';
+        function clicked (e) {
+            console.log(this,'entered')
+            console.log(this.dataset.target)
+            show(this.dataset.target)
+        }
+        var elements = document.getElementsByClassName('color-variant');
+        var images = document.getElementsByClassName('caro-item');
+        Array.from(elements).forEach(function(element) {
+            element.addEventListener('click', clicked);
+        });
+
+        function show(element) {
+            for(var i =0;i<images.length;i++){
+                // console.log(images[i].dataset.title)
+                if(images[i].dataset.title == element){
+                    // console.log('elementfound')
+                    images[i].classList.add('caro-active')
+                    images[i].classList.remove('caro-inactive')
+                }
+                else{
+                    images[i].classList.add('caro-inactive')
+                    images[i].classList.remove('caro-active')
+                }
+            }
+        }
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        lightbox.option({
+          'resizeDuration': 200,
+          'wrapAround': true,
+          'disableScrolling': true,
+          'maxWidth': 300
+        })
+    </script>
+</body>
+</html>
+
+
+
+

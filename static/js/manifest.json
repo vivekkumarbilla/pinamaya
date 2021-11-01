@@ -1,0 +1,24 @@
+{
+  "short_name": "Pinnamaya",
+  "name": "Pinnamaya",
+  "icons": [
+    {
+      "src": "../img/logosm.png",
+      "sizes": "40x40"
+    },
+    {
+      "src": "./manifest/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "description": "Pinnamaya Cycles. Burn Fat, Not Fuel.",
+  "start_url": ".",
+  "background_color": "#fff",
+  "display": "standalone",
+  "theme_color": "#fff",
+  "author": "Vivek Billa, YHTS",
+  "scope": "."
+  
+}
